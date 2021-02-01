@@ -2,7 +2,7 @@
 
 > Add night region to react leaflet map
 
-> Calculation algorithms based on [Leaflet.Terminator](github.com/joergdietrich/Leaflet.Terminator)
+> Calculation algorithms based on [Leaflet.Terminator](https://github.com/joergdietrich/Leaflet.Terminator)
 
 [![NPM](https://img.shields.io/npm/v/react-leaflet-night-region.svg)](https://www.npmjs.com/package/react-leaflet-night-region) [![JavaScript Style Guide](https://img.shields.io/badge/code_style-standard-brightgreen.svg)](https://standardjs.com)
 
