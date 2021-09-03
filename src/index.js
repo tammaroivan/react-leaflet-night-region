@@ -12,9 +12,11 @@ import { Polygon } from 'react-leaflet'
 import useInterval from 'use-interval'
 
 export const NightRegion = (props) => {
+  const { refreshInterval } = props
+
   const [positions, setpositions] = useState([])
 
-  const getNightRegionPositions = specificDate => {
+  const getNightRegionPositions = (specificDate) => {
     const date = specificDate || new Date()
     const julianDate = getJulianDate(date)
     const gst = getGMST(julianDate)
@@ -38,7 +40,7 @@ export const NightRegion = (props) => {
   useInterval(async () => {
     const nightRegionPositions = getNightRegionPositions()
     setpositions(nightRegionPositions)
-  }, 3000)
+  }, refreshInterval || 5000)
 
   return <Polygon positions={positions} {...props} />
 }
