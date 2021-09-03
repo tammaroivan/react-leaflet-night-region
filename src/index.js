@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react'
+import React, { useState } from 'react'
 import {
   computeLatitude,
   getEclipticObliquity,
@@ -9,11 +9,14 @@ import {
   getSunEquatorialPosition
 } from './utils'
 import { Polygon } from 'react-leaflet'
+import useInterval from 'use-interval'
 
 export const NightRegion = (props) => {
+  const { refreshInterval } = props
+
   const [positions, setpositions] = useState([])
 
-  const getNightRegionPositions = specificDate => {
+  const getNightRegionPositions = (specificDate) => {
     const date = specificDate || new Date()
     const julianDate = getJulianDate(date)
     const gst = getGMST(julianDate)
@@ -34,15 +37,10 @@ export const NightRegion = (props) => {
     return latLng
   }
 
-  useEffect(() => {
+  useInterval(() => {
     const nightRegionPositions = getNightRegionPositions()
     setpositions(nightRegionPositions)
-  }, [])
+  }, refreshInterval || 5000)
 
-  return (
-    <Polygon
-      positions={positions}
-      {...props}
-    />
-  )
+  return <Polygon positions={positions} {...props} />
 }

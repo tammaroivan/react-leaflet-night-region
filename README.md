@@ -35,6 +35,7 @@ const App = () => {
           <NightRegion
             fillColor='#00345c'
             color='#001a2e'
+            refreshInterval={1000} // custom refresh rate in milliseconds, default set to 5000ms
           />
         </MapContainer>
     )
@@ -50,7 +51,6 @@ const App = () => {
 You can use the same options as in a [Leaflet Polygon](https://leafletjs.com/reference-1.7.1.html#polygon) 
 
 ## To-Dos
-- [ ] Live update
 - [ ] Multiple layers with different night intensity
 
 ## License
