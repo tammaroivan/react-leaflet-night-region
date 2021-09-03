@@ -37,7 +37,7 @@ export const NightRegion = (props) => {
     return latLng
   }
 
-  useInterval(async () => {
+  useInterval(() => {
     const nightRegionPositions = getNightRegionPositions()
     setpositions(nightRegionPositions)
   }, refreshInterval || 5000)
